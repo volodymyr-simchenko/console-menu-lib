@@ -20,7 +20,7 @@ enum menu_type
 {
     SIMPLE_MENU,
     SIMPLE_CONTEXT_MENU,
-    // Будет реализовано в будущем
+    // Will be implemented in the future
     ADVANCED_MENU,
     ADVANCED_CONTEXT_MENU
 };
@@ -30,7 +30,7 @@ class Menu
     class menu_item
     {
     public:
-        std::string str = "не инициализирован";
+        std::string str = "not initialized";
         bool is_init = false;
         void (*exec) ();
         menu_item (void (*exec) (), std::string str) : str (str) , exec (exec) {};
@@ -50,10 +50,10 @@ public :
     void add_item (void (*) (), std::string);
     bool is_all_init () const;
 
-    // Запустить меню
+    // Run the menu
     void exec () const;
 
-    // Деструктор
+    // Destructor
     ~Menu ();
 
 };
