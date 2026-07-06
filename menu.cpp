@@ -17,12 +17,12 @@
 
 Menu::Menu ( std::string menu_header, menu_type mtype) : menu_header (menu_header)
 {
-    // size > 0 ? this->size = size : throw std::invalid_argument ("Неверные размер меню");
-    // menu_header.empty () ? this->menu_header = "Меню:" : this->menu_header = menu_header;
+    // size > 0 ? this->size = size : throw std::invalid_argument ("Invalid menu size");
+    // menu_header.empty () ? this->menu_header = "Menu:" : this->menu_header = menu_header;
     // menu = new menu_item [size];
     this->mtype = mtype;
     bool corr_mtype = mtype == menu_type::SIMPLE_MENU or mtype == menu_type::SIMPLE_CONTEXT_MENU or mtype == menu_type::ADVANCED_MENU or mtype == menu_type::ADVANCED_CONTEXT_MENU;
-    corr_mtype ? this->mtype = mtype : throw std::invalid_argument ("Неизвестный тип меню");
+    corr_mtype ? this->mtype = mtype : throw std::invalid_argument ("Неизвестный тип мен��");
 
     //is_size_init = true;
 
@@ -43,7 +43,7 @@ void Menu::add_item (void (*exec) () , std::string item_str)
     // }
     // else
     // {
-    //     throw std::out_of_range("Неправильный номер пункта меню");
+    //     throw std::out_of_range("Invalid menu item number");
     // }
 
 }
@@ -64,12 +64,12 @@ void Menu::exec () const
     {
         throw std::logic_error ("Не все элементы меню инициализированы");
     }
-    // Будет реализовано потом
+    // Will be implemented later
     // if (mtype != menu_type::SIMPLE_MENU)
     // {
     //
     // }
-    // Инициализация ncurses
+    // Initialize ncurses
 
     setlocale (LC_ALL, "ru_RU.UTF-8");
 
@@ -77,23 +77,23 @@ void Menu::exec () const
     cbreak();
     noecho();
 
-    // Отключаю мигающий курсор
+    // Disable blinking cursor
     curs_set (0);
 
-    keypad(stdscr, true); // Включение режима обработки командных клавиш
+    keypad(stdscr, true); // Enable processing of command keys
 
-    // Иначе, продолжается выполнение метода:
+    // Otherwise, continue method execution:
 
     ushort selected = 0;
     int input;
 
-    // Запуск цикла меню
+    // Start menu loop
     do
     {
         clear ();
         printw ( "\t%s\n" , this->menu_header.c_str()); printw ("\n");
 
-        // Вывод пунктов меню в моменте
+        // Print menu items at the moment
 
         for (ushort i = 0; i < menu.size(); ++i)
         {
@@ -110,7 +110,7 @@ void Menu::exec () const
         printw ("\n\t\tДля выхода нажмите кнопку 'Q'\n");
         refresh ();
 
-        // Ожидание нажатия клавиши пользователем
+        // Wait for user key press
         input = getch ();
 
         switch (input)

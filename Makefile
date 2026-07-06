@@ -1,22 +1,22 @@
 # menu Makefile
-# Объявление переменных
+# Variable declarations
 CXX = g++
 CXXFLAGS = -std=c++11 -Wall
 LIBS = -lncurses
 CPP = main.cpp menu.cpp
 
-# Версия
+# Version
 VERSION := 1.2.1
 
-# Определение флага компилятора с версией
+# Define compiler flag with the version
 CPPFLAGS := -DVERSION=\"$(VERSION)\"
 
-# Правило сборки исполняемого файла
+# Rule to build the executable
 EXECUTABLE = main_$(VERSION)
 main: $(CPP)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -o $(EXECUTABLE) $^ $(LIBS)
 	@echo "Сборка завершена! Исполняемый файл: $(EXECUTABLE)"
 
-# Правило очистки
+# Clean rule
 clean:
 	rm -f $(EXECUTABLE)
