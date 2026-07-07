@@ -50,7 +50,7 @@ void foo3 ()
 
 void foo4 ()
 {
-    printw ("Выполнен��е foo4\n");
+    printw ("Выполнение foo4\n");
     refresh ();
 }
 
