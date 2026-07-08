@@ -15,9 +15,8 @@ item selection and callback execution in a terminal UI.
 ## How to build
 Requires ncurses:
 ```bash
-sudo apt install libncurses5-dev
-g++ main.cpp menu.cpp -o menu-demo -lncurses
-./menu-demo
+make
+./menu
 ```
 
 ## Notes

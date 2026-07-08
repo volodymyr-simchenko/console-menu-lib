@@ -9,7 +9,7 @@ CPP = main.cpp menu.cpp
 EXECUTABLE = main
 main: $(CPP)
 	$(CXX) $(CXXFLAGS) -o $(EXECUTABLE) $^ $(LIBS)
-	@echo "Сборка завершена! Исполняемый файл: $(EXECUTABLE)"
+	@echo "Built: $(EXECUTABLE)"
 
 # Clean rule
 clean:
