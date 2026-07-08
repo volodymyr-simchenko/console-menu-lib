@@ -17,13 +17,13 @@ int main ()
 {
     setlocale (LC_ALL, "ru_RU.UTF-8");
 
-    Menu menu ("Выберите пункт", menu_type::SIMPLE_MENU);
+    Menu menu ("Choose an option:", menu_type::SIMPLE_MENU);
 
-    menu.add_item(foo1, "Пункт первый");
-    menu.add_item(foo2, "Пункт второй");
-    menu.add_item(foo3, "Пункт третий");
-    menu.add_item(foo4, "Пункт четвёртый");
-    menu.add_item(foo5, "Пункт пятый");
+    menu.add_item(foo1, "Option 1");
+    menu.add_item(foo2, "Option 2");
+    menu.add_item(foo3, "Option 3");
+    menu.add_item(foo4, "Option 4");
+    menu.add_item(foo5, "Option 5");
 
     menu.exec();
 
@@ -33,35 +33,35 @@ int main ()
 
 void foo1 ()
 {
-    printw ("Выполнение foo1\n");
+    printw ("Executing foo1\n");
 }
 
 void foo2 ()
 {
-    printw ("Выполнение foo2\n");
+    printw ("Executing foo2\n");
     refresh ();
 }
 
 void foo3 ()
 {
-    printw ("Выполнение foo3\n");
+    printw ("Executing foo3\n");
     refresh ();
 }
 
 void foo4 ()
 {
-    printw ("Выполнение foo4\n");
+    printw ("Executing foo4\n");
     refresh ();
 }
 
 void foo5 ()
 {
-    printw ("Выполнение foo5\n");
+    printw ("Executing foo5\n");
     refresh ();
 }
 
 void foo6 ()
 {
-    printw ("Выполнение foo6\n");
+    printw ("Executing foo6\n");
     refresh ();
 }

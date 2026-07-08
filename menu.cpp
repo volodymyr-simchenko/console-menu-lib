@@ -22,7 +22,7 @@ Menu::Menu ( std::string menu_header, menu_type mtype) : menu_header (menu_heade
     // menu = new menu_item [size];
     this->mtype = mtype;
     bool corr_mtype = mtype == menu_type::SIMPLE_MENU or mtype == menu_type::SIMPLE_CONTEXT_MENU or mtype == menu_type::ADVANCED_MENU or mtype == menu_type::ADVANCED_CONTEXT_MENU;
-    corr_mtype ? this->mtype = mtype : throw std::invalid_argument ("Неизвестный тип мен��");
+    corr_mtype ? this->mtype = mtype : throw std::invalid_argument ("Unknown menu type");
 
     //is_size_init = true;
 
@@ -62,7 +62,7 @@ void Menu::exec () const
 {
     if (!is_all_init())
     {
-        throw std::logic_error ("Не все элементы меню инициализированы");
+        throw std::logic_error ("Not all menu items are initialized");
     }
     // Will be implemented later
     // if (mtype != menu_type::SIMPLE_MENU)
@@ -107,7 +107,7 @@ void Menu::exec () const
             }
             printw ("\n");
         }
-        printw ("\n\t\tДля выхода нажмите кнопку 'Q'\n");
+        printw ("\n\t\tFor exit, press 'Q'\n");
         refresh ();
 
         // Wait for user key press
